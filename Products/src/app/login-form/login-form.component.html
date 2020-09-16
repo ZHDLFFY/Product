@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/video.min.js"></script>
+    <link href="http://cdn-na.infragistics.com/igniteui/2020.1/latest/css/themes/infragistics/infragistics.theme.css"
+        rel="stylesheet" />
+    <link href="http://cdn-na.infragistics.com/igniteui/2020.1/latest/css/structure/infragistics.css"
+        rel="stylesheet" />
+
+    <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.8.3.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://www.igniteui.com/js/angular.min.js"></script>
+
+    <!-- Ignite UI for jQuery Required Combined JavaScript Files -->
+    <script src="http://cdn-na.infragistics.com/igniteui/2020.1/latest/js/infragistics.core.js"></script>
+    <script src="http://cdn-na.infragistics.com/igniteui/2020.1/latest/js/infragistics.lob.js"></script>
+
+    <script src="http://cdn-na.infragistics.com/igniteui/2020.1/latest/js/extensions/igniteui-angularjs.js"></script>
+
+    <script type="text/javascript">
+        var sampleApp = angular.module('sampleApp', ['igniteui-directives']);
+    </script>
+
+
+</head>
+
+<body>
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm.value)" [class.error]="!myForm.valid && myForm.dirty">
+        <div>
+            <label for="email">用户名</label>
+            <input type="email" class="form-control" id="userInput" name="username" placeholder="enter email"
+                [formControl]="myForm.controls['username']">
+            <p class="alert alert-danger" *ngIf="!username.valid">
+                请输入用户名
+            </p>
+        </div>
+        <div>
+            <label for="pwd">密码</label>
+            <input type="password" class="form-control" id="passInput" name="password" placeholder="enter password"
+                [formControl]="myForm.controls['password']">
+            <p class="alert alert-danger" *ngIf="!password.valid">
+                请输入密码
+            </p>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+
+</body>
+
+</html>

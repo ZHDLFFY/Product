@@ -1,0 +1,27 @@
+<body>
+
+  <nav class=" navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">
+      <img class="logo" src="https://gbres.dfcfw.com/Files/picture/20150508/D15518A1AF2770198CECDB5ED7B59CDB.gif">
+    </a>
+    <ul class="navbar-nav">
+      <li class="nav-item">
+
+        <a class="nav-link" [routerLink]="['./productList']">商品列表 </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['./purShase']">购置信息 <span class="badge badge-primary">4</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['./userInfo']">个人信息</a>
+      </li>
+    </ul>
+    <!-- <a class="nav-link" (click)="loggOut()" *ngIf=this.auth.isLoggedin() style="position: absolute;right:10px;">退出</a>
+
+    <a class="nav-link" [routerLink]="['./weluser']" style="position: absolute;right:55px;"
+      *ngIf=this.auth.isLoggedin()>欢迎{{auth.userName}}</a> -->
+
+
+  </nav>
+  <router-outlet></router-outlet>
+</body>
