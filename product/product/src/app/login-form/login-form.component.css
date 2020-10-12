@@ -1,0 +1,25 @@
+.container {
+    width: 40%;
+    margin:50px auto;
+    box-shadow: 2px 2px 5px rgb(68, 65, 64);
+    padding: 20px;
+    border-radius: 5px;
+     
+}
+form{
+    border: 2px solid rgb(255, 255, 255);
+    padding: 10px;
+}
+.switch{
+    width: 45%;
+    margin:10px auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.subBtn{
+    margin-top: 10px;
+}
+.title{
+    text-align: center;
+}

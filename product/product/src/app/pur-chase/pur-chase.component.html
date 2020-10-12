@@ -1,0 +1,49 @@
+<div class="purCard">
+    <div class="purHead">单号：CFS456216854654</div>
+    <div class="cardBorder">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>商品号</th>
+                    <th>名称</th>
+                    <th>数量</th>
+                    <th>时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of unfinishList" (click)="goPoductInfo(item)">
+                    <td *ngIf="item.status=='unfinish'">{{item.ProductId}}</td>
+                    <td *ngIf="item.status=='unfinish'">{{item.ProductName}}</td>
+                    <td *ngIf="item.status=='unfinish'">{{item.HaveNumber}}</td>
+                    <td *ngIf="item.status=='unfinish'">{{item.Date}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="button" class="btn btn-primary btn-sm card-Submit" (click)="PurSubmit()">确认下单</button>
+    </div>
+</div>
+
+
+<div class="purCard ">
+    <div class="purHead">历史记录</div>
+    <div class="cardBorder">
+        <table class="table table-hover ">
+            <thead>
+                <tr>
+                    <th>名称</th>
+                    <th>时间</th>
+                    <th>状态</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of finishedList" (click)="goPurInfo(item)">
+                    <td *ngIf="item.status=='finished'">{{item.ProductId}}</td>
+                    <td *ngIf="item.status=='finished'">{{item.Date}}</td>
+                    <td *ngIf="item.status=='finished'">已完成</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -1,0 +1,15 @@
+img{
+    width: 90%;
+}
+
+.row_right{
+    width: 30%;
+}
+
+body{
+    margin: 1%;
+}
+
+.infomation{
+    border: 2px solid chartreuse;
+}
