@@ -58,19 +58,28 @@ router.post('/:list/:username', (req, res) => {
         database: 'product'
     });
     let insertSQL = "INSERT INTO " + username + 'table' + " ( ProductId ,ProductName,idList,Date,status)  values ('" + id + "','" + ' ' + "','" + (purList) + "','" + date + "','" + 'finished' + "') ";
+    let insertAdminSQL = "INSERT INTO zhdtable ( ProductId ,ProductName,idList,Date,status)  values ('" + id + "','" + ' ' + "','" + (purList) + "','" + date + "','" + 'finished' + "') ";
     // console.log(insertSQL)
     connection.query(insertSQL, function (err, result) {
         if (err) {
             console.log('[INSERT ERROR] - ', err.message);
             res.send("错误");
         } else {
-            res.send(JSON.stringify({
-                succ: true,
-                msg: "PRODUCT INSERT Succeed"
-            }))
+
+            connection.query(insertAdminSQL, function (err, result) {
+                if (err) {
+                    console.log('[INSERT ERROR] - ', err.message);
+                    res.send("错误");
+                } else {
+                    res.send(JSON.stringify({
+                        succ: true,
+                        msg: "PRODUCT INSERT Succeed"
+                    }))
+                }
+            });
+            connection.end();
         }
     });
-    connection.end();
 
 })
 

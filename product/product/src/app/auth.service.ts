@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   public loggein = false
-  UserInfo: String = 'zhd'
+  public UserInfo = { username: '', result: '', userID: '' }
   // ProListLnegth: String
   // private IP = 'http://121.196.51.132:3000/login'
   private IP = 'http://localhost:3000/'
@@ -50,15 +50,14 @@ export class AuthService {
   }
 
 
-  login(value: any, callBack: any) {
-    console.log('开始登陆')
+  login(value: any) {
     this.PostLogin(value).subscribe(
       (resp: any) => {
         if (resp.succ) {
           console.log(resp)
           this.loggein = true;
-          this.UserInfo = value.username
-          callBack()
+          this.UserInfo = { username: resp.username, result: resp.result, userID: resp.userID }
+          this.router.navigate(['./productList'])
         } else {
           console.log(resp)
         }

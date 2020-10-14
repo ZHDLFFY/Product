@@ -43,10 +43,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(value: any): void {
-    console.log('submit: ' + value.username, value.password)
-    this.auth.login(value, function () {
-      this.router.navigate(['./productList'])
-    }.bind(this))
+    this.auth.login(value)
   }
 
   onRegister(value: any): void {

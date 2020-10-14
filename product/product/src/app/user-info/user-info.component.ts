@@ -8,8 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class UserInfoComponent implements OnInit {
 
-  UserInfo: String
-
+  public UserInfo = { username: '', result: '', userID: '' }
   constructor(private auth: AuthService) { }
 
   ngOnInit(): void {

@@ -43,7 +43,7 @@ export class PurChaseComponent implements OnInit {
   GetUseCart() {
     this.unfinishList = []
     this.finishedList = []
-    this.auth.GetUseCart(this.auth.UserInfo).subscribe(
+    this.auth.GetUseCart(this.auth.UserInfo.username).subscribe(
       (resp: any) => {
         for (let item of resp) {
           if (item.status == 'unfinish') {
@@ -52,7 +52,7 @@ export class PurChaseComponent implements OnInit {
         }
       }
     )
-    this.auth.GetUseTable(this.auth.UserInfo).subscribe(
+    this.auth.GetUseTable(this.auth.UserInfo.username).subscribe(
       (resp: any) => {
         for (let item of resp) {
           this.finishedList.push(item)
@@ -63,7 +63,7 @@ export class PurChaseComponent implements OnInit {
 
   PurSubmit() {
     console.log(JSON.stringify(this.unfinishList))
-    let e = { list: this.unfinishList, username: this.auth.UserInfo }
+    let e = { list: this.unfinishList, username: this.auth.UserInfo.username }
     this.auth.PostCartUserID(e).subscribe(
       (resp: any) => {
         if (resp.succ == true) {

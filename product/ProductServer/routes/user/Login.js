@@ -5,7 +5,6 @@ var router = express.Router()
 
 router.post('/:value', (req, res) => {                            //登陆请求
     let data = JSON.parse(req.params['value'])
-    console.log(data)
     var connection = mysql.createConnection({
         host: 'localhost',
         user: 'root',
@@ -21,17 +20,22 @@ router.post('/:value', (req, res) => {                            //登陆请求
             res.send("错误");
 
         } else {
+
             for (let item of result) {
                 if (item.username == data.username && item.password == data.password) {
                     res.send(JSON.stringify({
                         succ: true,
-                        msg: "SELECT Succeed"
+                        msg: "SELECT Succeed",
+                        username: result[0].username,
+                        userID: result[0].userID,
+                        result: result[0].power
                     }))
-                    // console.log('LOGIN Succeed')
+                    console.log(item.username + ':Login succeed')
+
                 } else {
                     res.send(JSON.stringify({
                         succ: false,
-                        msg: "SELECT Fail"
+                        msg: "SELECT Fail",
                     }))
                     // console.log('LOGIN Fail --> The user name or password is incorrect.')
                 }

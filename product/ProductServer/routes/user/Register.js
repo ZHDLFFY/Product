@@ -42,7 +42,7 @@ router.post('/:value', (req, res) => {                                          
                                 console.log('[INSERT ERROR] - ', err.message);
                                 res.send("错误");
                             } else {
-
+                                console.log('register table succeed')
                             }
                         });
                         connection.query(creatCart, (err, result) => {
@@ -54,6 +54,7 @@ router.post('/:value', (req, res) => {                                          
                                     succ: true,
                                     msg: "REGISTER Succeed"
                                 }))
+                                console.log('register cart succeed')
                             }
                         });
 
