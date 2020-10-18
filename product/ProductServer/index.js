@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const app = express();
+var PostAdminIssue = require('./routes/cart/PostAdminIssue')
 var GetProductByID = require('./routes/cart/GetProductByID')
 var GetCart = require('./routes/cart/GetCart')
 var PostCart = require('./routes/cart/PostCart')
@@ -33,7 +34,7 @@ app.get('/', (req, res) => {
     res.send('Hello Express')
 })
 
-
+app.use('/PostAdminIssue', PostAdminIssue)
 app.use('/GetProductByID', GetProductByID)
 app.use('/GetCart', GetCart)
 app.use('/PostCart', PostCart)

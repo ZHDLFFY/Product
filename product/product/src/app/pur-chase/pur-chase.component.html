@@ -1,21 +1,25 @@
 <div class="purCard">
-    <div class="purHead">单号：CFS456216854654</div>
+    <label class="purHead" for="">{{UserInfo.result=='admin'?'新增单':'未下单'}}</label>
     <div class="cardBorder">
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>商品号</th>
+                    <!-- <th>商品号</th> -->
                     <th>名称</th>
                     <th>数量</th>
                     <th>时间</th>
+                    <th>状态</th>
+                    <th>客户</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of unfinishList" (click)="goPoductInfo(item)">
-                    <td *ngIf="item.status=='unfinish'">{{item.ProductId}}</td>
-                    <td *ngIf="item.status=='unfinish'">{{item.ProductName}}</td>
-                    <td *ngIf="item.status=='unfinish'">{{item.HaveNumber}}</td>
-                    <td *ngIf="item.status=='unfinish'">{{item.Date}}</td>
+                    <!-- <td>{{item.idList}}</td> -->
+                    <td>{{item.productName}}</td>
+                    <td>{{item.number}}</td>
+                    <td>{{item.startDate}}</td>
+                    <td>{{item.status}}</td>
+                    <td>{{item.customer}}</td>
                 </tr>
             </tbody>
         </table>
@@ -25,12 +29,14 @@
 
 
 <div class="purCard ">
-    <div class="purHead">历史记录</div>
+    <label class="purHead" for="">历史记录</label>
     <div class="cardBorder">
         <table class="table table-hover ">
             <thead>
                 <tr>
+                    <th>单号</th>
                     <th>名称</th>
+                    <th>数量</th>
                     <th>时间</th>
                     <th>状态</th>
 
@@ -38,9 +44,11 @@
             </thead>
             <tbody>
                 <tr *ngFor="let item of finishedList" (click)="goPurInfo(item)">
-                    <td *ngIf="item.status=='finished'">{{item.ProductId}}</td>
-                    <td *ngIf="item.status=='finished'">{{item.Date}}</td>
-                    <td *ngIf="item.status=='finished'">已完成</td>
+                    <td>{{item.taskId}}</td>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.number}}</td>
+                    <td>{{item.startDate}}</td>
+                    <td>{{item.status}}</td>
                 </tr>
             </tbody>
         </table>

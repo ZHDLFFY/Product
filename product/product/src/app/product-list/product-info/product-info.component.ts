@@ -46,7 +46,7 @@ export class ProductInfoComponent implements OnInit {
     } else if (method == '+') {
       e.HaveNumber = Number(e.HaveNumber) + 1
     }
-    e.username = this.auth.UserInfo
+    e.username = this.auth.UserInfo.username
     console.log(e)
     this.auth.PostCart(e).subscribe(
       (resp: any) => {

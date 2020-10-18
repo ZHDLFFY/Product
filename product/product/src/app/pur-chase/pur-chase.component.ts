@@ -13,11 +13,13 @@ export class PurChaseComponent implements OnInit {
 
   public unfinishList = []
   public finishedList = []
+  public UserInfo = { username: '', result: '', userID: '' }
   constructor(private router: Router, private auth: AuthService) {
   }
 
   ngOnInit(): void {
     this.GetUseCart()
+    this.UserInfo = this.auth.UserInfo;
   }
 
   goPurInfo(e) {
@@ -43,35 +45,69 @@ export class PurChaseComponent implements OnInit {
   GetUseCart() {
     this.unfinishList = []
     this.finishedList = []
+    // console.log(this.auth.UserInfo.result)
+    if (this.auth.UserInfo.result != "admin") {
+      this.ResultNotAdmin()
+    }
+    else {
+      this.ResultAdmin()
+    }
+  }
+
+  ResultAdmin() {
     this.auth.GetUseCart(this.auth.UserInfo.username).subscribe(
       (resp: any) => {
+        console.log(resp)
         for (let item of resp) {
-          if (item.status == 'unfinish') {
+          if (item.status == "unfinish") {
             this.unfinishList.push(item)
+          } else {
+            this.finishedList.push(item)
           }
         }
       }
     )
-    this.auth.GetUseTable(this.auth.UserInfo.username).subscribe(
+  }
+  ResultNotAdmin() {
+    this.auth.GetUseCart(this.auth.UserInfo.username).subscribe(
       (resp: any) => {
+        console.log(resp)
         for (let item of resp) {
-          this.finishedList.push(item)
+          if (item.status == 'ready') {
+            this.unfinishList.push(item)
+          } else {
+            this.finishedList.push(item)
+          }
         }
       }
     )
   }
 
   PurSubmit() {
-    console.log(JSON.stringify(this.unfinishList))
-    let e = { list: this.unfinishList, username: this.auth.UserInfo.username }
-    this.auth.PostCartUserID(e).subscribe(
-      (resp: any) => {
-        if (resp.succ == true) {
-          console.log(resp.msg)
-          this.GetUseCart()
-        }
+    if (this.auth.UserInfo.result != "admin") {
+      for (let item of this.unfinishList) {
+        let e = { value: item, username: this.auth.UserInfo.username }
+        this.auth.PostCartUserID(e).subscribe(
+          (resp: any) => {
+            if (resp.succ == true) {
+              console.log(resp.msg)
+              this.GetUseCart()
+            }
+          }
+        )
       }
-    )
+    } else {
+      for (let item of this.unfinishList) {
+        let e = { value: item, username: this.auth.UserInfo.username }
+        this.auth.PostAdminIssue(e).subscribe(
+          (resp: any) => {
+            if (resp.succ == true) {
+              console.log(resp.msg)
+              this.GetUseCart()
+            }
+          }
+        )
+      }
+    }
   }
-
 }

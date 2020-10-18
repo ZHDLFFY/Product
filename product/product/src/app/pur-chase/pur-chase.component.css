@@ -8,20 +8,19 @@
 .purHead{
     padding:8px 12px ;
     font-weight: bold;
-    width: 68%;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     /* background-color: rgb(61, 177, 177); */
     background-image: linear-gradient(to bottom right, rgb(61, 177, 177) ,rgb(242, 248, 248)  );
-
     border-top-left-radius: 10px;
-    border-top-right-radius: 50px;
-    border: 2px solid rgb(61, 177, 177);
-    border-bottom: none;
+    border-top-right-radius: 30px;
+    margin: 0px;
+    /* border: 2px solid rgb(61, 177, 177);
+    border-bottom: none; */
 
 }
 
 .cardBorder{
-    border: 2px solid rgb(61, 177, 177);
+    /* border: 2px solid rgb(61, 177, 177); */
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border-top-right-radius: 10px;
