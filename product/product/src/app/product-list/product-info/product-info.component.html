@@ -1,43 +1,93 @@
 <body>
-    <div class="row">
-        <div class="col ">
-            <div class="infomation">
-                <div class="card">
-                    <img class="card-img-top" src="https://static.runoob.com/images/mix/img_avatar.png" alt="Card image"
-                        style="width:100%">
-                    <div class="card-body">
-                        <h6 class="card-title detailButton">{{information.ProductName}}</h6>
-                        <p class="card-text detail">进货时间：{{information.Date}}</p>
-                    </div>
-                    <div class="footer">
-                        <div class="number" (click)="Increase(information,'-')">-</div>
-                        <input [(ngModel)]="information.HaveNumber">/{{information.ProductNumber}}
-                        <div class="number" (click)="Increase(information,'+')">+</div>
+    <div class="infoBody">
+        <div class="row">
+            <div class="col ">
+                <div class="infomation">
+                    <div class="card">
+                        <img class="card-img-top" src="https://static.runoob.com/images/mix/img_avatar.png"
+                            alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h6 class="card-title detailButton">{{information.ProductName}}</h6>
+                            <p class="card-text detail">进货时间：{{information.Date}}</p>
+                        </div>
+                        <div class="footer">
+                            <div class="number" (click)="Increase(information,'-')">-</div>
+                            <input [(ngModel)]="information.HaveNumber">/{{information.ProductNumber}}
+                            <div class="number" (click)="Increase(information,'+')">+</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col">
-            第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
-            表示一个数字, 同一行的数字相加为 12。
+            <div class="col">
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
 
-            第二个例子: 不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个
-            "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+                第二个例子: 不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个
+                "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
 
-            接下来我们可以看看实例。
+                接下来我们可以看看实例。
 
-            创建相等宽度的列，Bootstrap 自动布局
+                创建相等宽度的列，Bootstrap 自动布局
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
+
+                第二个例子: 不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个
+                "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+
+                接下来我们可以看看实例。
+
+                创建相等宽度的列，Bootstrap 自动布局
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
+
+                第二个例子: 不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个
+                "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+
+                接下来我们可以看看实例。
+
+                创建相等宽度的列，Bootstrap 自动布局
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
+
+                第二个例子: 不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个
+                "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+
+                接下来我们可以看看实例。
+
+                创建相等宽度的列，Bootstrap 自动布局
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
+
+                第二个例子: 不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个
+                "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+
+                接下来我们可以看看实例。
+
+                创建相等宽度的列，Bootstrap 自动布局
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
+
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <img class="row_right" src="/assets/images/1.jpg" alt="">
+                </div>
+                <div class="row">
+                    <img class="row_right" src="/assets/images/1.jpg" alt="">
+                </div>
+                <div class="row">
+                    <img class="row_right" src="/assets/images/1.jpg" alt="">
+                </div>
+            </div>
         </div>
-        <div class="col">
-            <div class="row">
-                <img class="row_right" src="/assets/images/1.jpg" alt="">
-            </div>
-            <div class="row">
-                <img class="row_right" src="/assets/images/1.jpg" alt="">
-            </div>
-            <div class="row">
-                <img class="row_right" src="/assets/images/1.jpg" alt="">
-            </div>
-        </div>
+
     </div>
+
+    <div class="floot">
+        <button type="button" class="btn submit btn-primary" (click)="Submit()">确认</button>
+
+    </div>
+
+
 </body>

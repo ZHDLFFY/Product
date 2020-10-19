@@ -10,12 +10,14 @@ import { AuthService } from 'src/app/auth.service';
 export class ProductInfoComponent implements OnInit {
 
   // @Input() product: string
-  information = {
+  public information = {
     ProductName: '',
     Date: '',
     ProductNumber: '',
     HaveNumber: ''
   }
+
+  private proInfo: object
 
   constructor(private router: Router, private auth: AuthService, private route: ActivatedRoute) { }
 
@@ -48,12 +50,18 @@ export class ProductInfoComponent implements OnInit {
     }
     e.username = this.auth.UserInfo.username
     console.log(e)
-    this.auth.PostCart(e).subscribe(
+    this.proInfo = e
+
+  }
+
+  Submit() {
+    console.log('123')
+    this.auth.PostCart(this.proInfo).subscribe(
       (resp: any) => {
         if (resp.succ == true) {
           console.log(resp.msg)
         } else {
-          e.HaveNumber = Number(e.HaveNumber) - 1
+          // e.HaveNumber = Number(e.HaveNumber) - 1
           console.log(resp)
         }
       }

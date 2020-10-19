@@ -8,7 +8,6 @@ router.post('/:value', (req, res) => {
     var data = JSON.parse(req.params['value'])
     var id = 'HD' + new Date().getTime();
     var date = new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + '-' + new Date().getDate() + ' ' + new Date().getHours() + ':' + new Date().getMinutes() + ':' + new Date().getSeconds()
-    // console.log(new Date().getMonth() + 1)
     // console.log(data)
     var connection = mysql.createConnection({
         host: 'localhost',
@@ -18,13 +17,11 @@ router.post('/:value', (req, res) => {
         database: 'product'
     });
 
-    //let selectSQL = "select * from cart  where ProductName='" + data.ProductName + "'";
-    // let updateSQL = "UPDATE cart SET ProductNumber='" + data.ProductNumber + "',HaveNumber='" + data.HaveNumber + "',Remaining='" + (Number(data.ProductNumber) - Number(data.HaveNumber)) + "',Date='" + date + "' WHERE ProductName='" + data.ProductName + "'";
     let insertSQL = "INSERT INTO " + data.username + 'table' + " ( taskId ,ProductName,number,idList,startDate,status,endDate)  values ('" + id + "','" + data.ProductName + "','" + data.HaveNumber + "','" + data.ProductId + "','" + date + "','" + 'ready' + "','" + '' + "') ";
-    console.log(insertSQL)
+    // console.log(insertSQL)
     connection.query(insertSQL, function (err, result) {
         if (err) {
-            console.log('[INSERT ERROR] - ', err.message);
+            console.log('[insertSQL ERROR] - ', err.message); b
             res.send("错误");
         } else {
             res.send(JSON.stringify({
@@ -56,16 +53,16 @@ router.post('/:value/:username', (req, res) => {
 
     let updateSQL = "update " + username + 'table' + " set status ='issued',startDate='" + date + "' where taskId='" + value.taskId + "'";
     let insertAdminSQL = "INSERT INTO zhdtable ( taskId ,productName,idList,number,startDate,status,customer,endDate)  values ('" + value.taskId + "','" + value.productName + "','" + value.idList + "','" + value.number + "','" + date + "','" + 'unfinish' + "','" + username + "','" + '' + "') ";
-    console.log(insertAdminSQL)
+    // console.log(insertAdminSQL)
 
     connection.query(updateSQL, function (err, result) {
         if (err) {
-            console.log('[UPDATE ERROR] - ', err.message);
+            console.log('[updateSQL ERROR] - ', err.message);
             res.send("错误");
         } else {
             connection.query(insertAdminSQL, function (err, result) {
                 if (err) {
-                    console.log('[INSERT ERROR] - ', err.message);
+                    console.log('[insertAdminSQL ERROR] - ', err.message);
                     res.send("错误");
                 } else {
                     res.send(JSON.stringify({
