@@ -10,6 +10,7 @@ import { UserInfoComponent } from './user-info/user-info.component';
 import { PurInfoComponent } from './pur-chase/pur-info/pur-info.component';
 import { RouterModule, Routes } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductManagementComponent } from './product-management/product-management.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'purShase', component: PurChaseComponent },
   { path: 'productInfo', component: ProductInfoComponent },
   { path: 'purInfo', component: PurInfoComponent },
+  { path: 'proManage', component: ProductManagementComponent },
 ]
 
 
@@ -31,7 +33,8 @@ const routes: Routes = [
     ProductInfoComponent,
     PurChaseComponent,
     UserInfoComponent,
-    PurInfoComponent
+    PurInfoComponent,
+    ProductManagementComponent
   ],
   imports: [
     BrowserModule,
