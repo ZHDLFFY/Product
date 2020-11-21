@@ -1,10 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
 
   public loggein = false
   public UserInfo = { username: 'zzz', result: '', userID: '' }
@@ -69,18 +71,11 @@ export class AuthService {
           console.log(resp)
           this.loggein = true;
           this.UserInfo = { username: resp.username, result: resp.result, userID: resp.userID }
-          this.router.navigate(['./productList'])
+          this.router.navigate(['./productlist'])
         } else {
           console.log(resp)
         }
       }
     )
   }
-  // getUseCart() {
-  //   this.GetUseCart(this.UserInfo).subscribe(
-  //     (resp: any) => {
-  //       this.ProListLnegth = resp.length
-  //     }
-  //   )
-  // }
 }

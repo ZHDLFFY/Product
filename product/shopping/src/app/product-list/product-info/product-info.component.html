@@ -1,0 +1,67 @@
+<body>
+    <div class="infoBody">
+        <div class="row">
+            <div class="col">
+                <img class="card-img-top" [src]="imgSrc" alt="Card image">
+                <div class="imgList card-img-top">
+                    <div *ngFor="let item of imglist">
+                        <img class="row_right" (click)="imgClick1(item)" [src]="item" alt="">
+                    </div>
+                </div>
+
+            </div>
+            <div class="col">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">{{information.ProductName}}</h4>
+                        <p class="card-text">进货时间：{{information.Date}}</p>
+                        <p class="card-text">商品编号：{{information.ProductId}}</p>
+                        <a class="card-link">尺码：小号</a>
+                        <a class="card-link">直径：36cm</a><br>
+                        <a class="card-link">单价：12元</a>
+                        <a class="card-link">容量：2L</a>
+                        <p></p>
+                        <div style="display: flex;">
+                            <div class="footer">
+                                <div class="number" (click)="Increase(information,'-')">-</div>
+                                <input [(ngModel)]="information.HaveNumber">
+                                <div class="number" (click)="Increase(information,'+')">+</div>
+                                <button type="button" class="btn btn-sm submit btn-primary"
+                                    (click)="Submit()">确认</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
+                第二个例子: 不在每个 col 上添加数字，让 bootstrap 自动处理布局，同一行的每个列宽度相等： 两个 "col" ，每个就为 50% 的宽度。三个 "col"每个就为 33.33% 的宽度，四个
+                "col"每个就为 25% 的宽度，以此类推。同样，你可以使用 .col-sm|md|lg|xl 来设置列的响应规则。
+                接下来我们可以看看实例。
+                创建相等宽度的列，Bootstrap 自动布局
+                第一个例子：创建一行。然后， 添加是需要的列( .col-*-* 类中设置)。 第一个星号 (*) 表示响应的设备: sm, md, lg 或 xl, 第二个星号 (*)
+                表示一个数字, 同一行的数字相加为 12。
+
+            </div>
+            <div class="col">
+                <div class="row">
+                    <!-- <img class="row_right" [src]="information.image" alt=""> -->
+                    {{information.image}}
+                </div>
+                <div class="row">
+                    <!-- <img class="row_right" src="./../../../../../ProductServer/upload/mmexport1572435222152.jpg" alt=""> -->
+                </div>
+                <div class="row">
+                    <!-- <img class="row_right" [src]="information.image" alt=""> -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>

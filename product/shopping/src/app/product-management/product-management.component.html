@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./assets/video.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <h3>商品预购系统</h3>
+        </div>
+        <form [formGroup]="myForm" (ngSubmit)="Submit(myForm.value)" [class.error]="!myForm.valid && myForm.dirty">
+            <div>
+                <label for="email">name</label>
+                <input type="email" class="form-control" name="name" placeholder="enter email"
+                    [formControl]="myForm.controls['name']">
+                <p class="alert alert-danger" *ngIf="!name.valid">
+                    请输入用户名
+                </p>
+            </div>
+            <div>
+                <label for="email">number</label>
+                <input type="number" class="form-control" name="number" placeholder="enter email"
+                    [formControl]="myForm.controls['number']">
+                <p class="alert alert-danger" *ngIf="!number.valid">
+                    请输入用户名
+                </p>
+            </div>
+            <div>
+                <label for="email">image</label>
+                <input type="image" class="form-control" name="image" placeholder="enter image"
+                    [formControl]="myForm.controls['image']">
+                <p class="alert alert-danger" *ngIf="!image.valid">
+                    请输入密码
+                </p>
+            </div>
+            <div *ngIf="Show==1">
+                <label for="phone">电话号码</label>
+                <input type="text" class="form-control" id="phoneInput" name="phone" placeholder="enter phone"
+                    [formControl]="myForm.controls['phone']">
+                <p class="alert alert-danger" *ngIf="!phone.valid">
+                    请输入电话号码
+                </p>
+            </div>
+
+            <div class="subBtn">
+                <button type="submit" class="btn btn-primary">提交</button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
+<input type="file" id="fileId" (change)="getfiledata($event)" multiple>
+<button type="button" (click)="uploadFile()">点击上传</button>

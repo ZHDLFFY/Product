@@ -1,0 +1,49 @@
+.detail{
+    font-size:0.8em;
+    padding: 0px;
+}
+.proName{
+    font-size: 1.0em;
+}
+
+.detailButton{
+    margin-bottom: 5px;
+    color: rgb(5, 209, 255);
+}
+ 
+.card{
+    width: 180px;
+    /* height: 240px; */
+    margin: 5px;
+    box-shadow: 2px 2px 5px rgb(184, 183, 182);
+}
+
+.card-title{
+    margin-bottom: 0em;
+    margin: 5px;
+}
+.card-text{
+    margin-bottom: 0em;
+    margin: 5px;
+}
+
+.contain{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-body{
+    padding: 5px;
+}
+
+input{
+    width: 25%;
+    border: 0px;
+    border-bottom:1px solid rgb(233, 233, 233);
+}

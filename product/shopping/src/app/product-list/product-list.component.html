@@ -1,0 +1,13 @@
+<body>
+    <div class="contain">
+        <div class="card" *ngFor="let item of PList let i=index">
+            <img class="card-img-top" (click)="goPoductInfo(item)  "
+                src="https://static.runoob.com/images/mix/img_avatar.png" alt="Card image" style="width:100%">
+            <div class="card-body">
+                <h6 class="card-title detailButton">{{item.ProductName}}</h6>
+                <p class="card-text detail">进货时间：{{item.Date}}</p>
+            </div>
+            <!-- <app-product-info [product]="currentItem"></app-product-info> -->
+        </div>
+    </div>
+</body>
