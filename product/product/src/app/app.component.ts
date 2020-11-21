@@ -1,7 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
-
 
 @Component({
   selector: 'app-root',
@@ -10,9 +9,22 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'product';
-  constructor(private router: Router, private auth: AuthService) { }
 
-  ngOnInit(): void {
+  fileData = new FormData()
+  list: string
+
+  constructor(private router: Router, private http: HttpClient) {
+  }
+  getfiledata(e) {
+    for (var i = 0, file; file = e.target.files[i]; i++) {
+      this.fileData.append('files', file)
+      console.log(file)
+    }
   }
 
+  uploadFile() {
+    this.http.post("http://127.0.0.1:3000/" + 'upload', this.fileData).subscribe();
+    console.log('1213213')
+    // this.auth.PostFile(this.fileData).subscribe()
+  }
 }

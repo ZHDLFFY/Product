@@ -24,10 +24,8 @@ router.get('/', (req, res) => {                            //货物信息请求
 
         } else {
             res.send(JSON.stringify(result))
-
         }
     });
-
     connection.end();
 })
 

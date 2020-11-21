@@ -6,10 +6,13 @@ var GetProductByID = require('./routes/cart/GetProductByID')
 var GetCart = require('./routes/cart/GetCart')
 var PostCart = require('./routes/cart/PostCart')
 var GetUseCart = require('./routes/cart/GetUseCart')
+var PostInsertProduct = require('./routes/cart/PostInsertProduct')
 
 var Login = require('./routes/user/Login')
 var Register = require('./routes/user/Register')
 var GetUserInfo = require('./routes/user/GetUserInfo');
+
+var upload = require('./routes/upload')
 
 
 
@@ -35,14 +38,17 @@ app.get('/', (req, res) => {
 })
 
 app.use('/PostAdminIssue', PostAdminIssue)
+app.use('/PostCart', PostCart)
+app.use('/PostInsertProduct', PostInsertProduct)
 app.use('/GetProductByID', GetProductByID)
 app.use('/GetCart', GetCart)
-app.use('/PostCart', PostCart)
 app.use('/GetUseCart', GetUseCart)
 
 
 app.use('/Login', Login)
 app.use('/Register', Register)
 app.use('/GetUserInfo', GetUserInfo)
+
+app.use('/upload', upload)
 
 app.listen(3000, () => console.log('Example app listening on port'))

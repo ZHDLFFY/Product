@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   public loggein = false
-  public UserInfo = { username: 'zhd', result: 'admin', userID: '' }
+  public UserInfo = { username: 'zzz', result: '', userID: '' }
   // ProListLnegth: String
   // private IP = 'http://121.196.51.132:3000/login'
   private IP = 'http://localhost:3000/'
@@ -30,6 +30,14 @@ export class AuthService {
   }
   PostAdminIssue(value) {
     return this.http.post(this.IP + 'PostAdminIssue' + '/' + JSON.stringify(value.value) + '/' + JSON.stringify(value.username), {})
+  }
+
+  PostFile(file) {
+    return this.http.post(this.IP + 'upload', file)
+  }
+
+  PostInsertProduct(value) {
+    return this.http.post(this.IP + 'PostInsertProduct' + '/' + JSON.stringify(value), {})
   }
 
   GetUserInfo(value) {
